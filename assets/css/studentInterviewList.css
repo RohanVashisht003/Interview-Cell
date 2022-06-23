@@ -1,0 +1,30 @@
+#list-container{
+    border: 1px solid white;
+    height:80vh;
+    width:90%;
+    margin: 3px auto;
+    box-shadow: 0px 0px 5px 2px #d6e0f0;
+    overflow-y: scroll;
+    padding: 3px;
+    background: rgb(176, 166, 166);
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+#list-container::-webkit-scrollbar,.main-container::-webkit-scrollbar,
+form::-webkit-scrollbar{
+    display: none;
+}
+
+thead{
+  position: sticky;
+  top:0px;
+}
+thead tr{
+    text-align: center;
+    color:white;
+}
+
+thead tr th{
+    border: 1px solid white;
+    background-color: orange;
+}

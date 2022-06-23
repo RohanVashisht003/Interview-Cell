@@ -1,0 +1,22 @@
+ <link rel="stylesheet" href="/css/studentInterviewList.css">
+ <!-- Student List -->
+ <div id="list-container">
+    <table class="table text-white table-hover">
+      <thead>
+        <tr>
+          <th scope="col" colspan="1">Company Name</th>
+          <th scope="col"  colspan="1">Student Name</th>
+          <th scope="col"  colspan="3">Interview Date</th>
+          <th scope="col"  colspan="2">Status</th>
+          <% if(locals.user){ %>
+          <th scope="col"  colspan="2">Action</th>
+          <%}%>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(company of company) {%> 
+          <%- include('_interviewStudent.ejs'); -%>
+        <% } %>
+      </tbody>
+    </table>
+  </div>

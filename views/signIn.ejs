@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/css/signIn.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+<div class="main-outer-container">
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <form action="/employee/create-session", method="POST">
+        <h3>SignIn Here</h3>
+
+        <label for="username">Email</label>
+        <input type="email" placeholder="Email" id="username" name="email">
+
+        <label for="password">Password</label>
+        <input type="password" placeholder="Password" id="password" name="password">
+
+        <button class="form-button" type="submit">Log In</button>
+        <div class="forgot-password">
+            <a href="#">Forgot Password</a>
+        </div>
+      
+    </form>
+</div>

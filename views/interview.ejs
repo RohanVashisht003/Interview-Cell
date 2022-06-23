@@ -1,0 +1,81 @@
+<link rel="stylesheet" href="/css/interview.css">
+
+
+<div id="outer">  
+
+    <% if(locals.user) {%>
+    <button type="button" class="btn bg-light main-button" onclick="toggler()" id="btn-main">Open Form</button>
+  
+    <div id="collapse" class="main-container" style="display:none;">
+      <div class="background"></div>
+      <form action="/interview/create" method="POST">
+          <div class="form-group">
+            <label for="companyName">Company Name</label>
+            <input type="text" class="" id="companyName" placeholder="Company Name" name="companyName"required/>
+          </div>
+      
+          <div class="form-group">
+            <label for="batch">Date And Time</label>
+            <input
+              type="datetime-local"
+              class=""
+              id="date"
+              name="date"
+           required />
+          </div>
+          <div class="form-group">
+            <label for="student">Allocate Student</label>
+            <select id="student" class="form-control" style="background-color: #00e9ff"
+            name="student">
+            <% for(student of students){ %>
+              <option value="<%= student.id %>"selected><%= student.name %><span> (<%= student.email %>)</span>
+              </option>
+              <%}%>
+            </select>
+          </div>
+    
+        <div class="d-flex justify-content-center mt-4"><button type="submit" class="btn btn-primary col-md-6">Add Interview</button></div>
+     
+      </form>
+    </div>
+  <%}%>
+  
+    <!-- Student List -->
+    <div id="list-container">
+      <table class="table text-white table-hover">
+        <thead>
+          <tr>
+            <th scope="col" colspan="4">Company Name</th>
+            <th scope="col"  colspan="4">Interview Date</th>
+            <th scope="col"  colspan="1">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%for(interview of interviews){%>
+            <%- include('_interviewList.ejs'); -%>
+          <%}%>
+        </tbody>
+      </table>
+     
+    </div>
+   
+  </div>
+                                              
+  <script>
+    
+    function toggler(){
+      var x = document.getElementById('collapse');
+      var btn = document.getElementById('btn-main');
+      var page = document.getElementById('outer');
+      var width = window.innerWidth;
+      if(x.style.display === 'none'){
+        x.style.display = 'block';
+        btn.textContent = 'Close Form';
+      }
+      else{
+        x.style.display = 'none';
+        btn.textContent = 'Open Form';
+      }
+    }
+  </script>
+  

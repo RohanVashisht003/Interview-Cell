@@ -1,0 +1,162 @@
+.main-outer-container{
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+    height: 100vh;
+    background-color: #032d6b;
+}
+
+
+.background{
+    width: 629px;
+    height: 504px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 56%;
+}
+
+.background .shape{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.shape:first-child{
+    background: linear-gradient(
+        #1845ad,
+        #23a2f6
+    );
+    left: -39px;
+    top: -17px;
+}
+.shape:last-child{
+    background: linear-gradient(
+        to right,
+        #ff512f,
+        #f09819
+    );
+    right: -17px;
+    bottom: -37px;
+}
+
+form{
+    width: 629px;
+    height: 504px;
+    background-color: rgba(255,255,255,0.13);
+    position: absolute;
+    transform: translate(-50%,-50%);
+    top: 56%;
+    left: 50%;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    padding: 50px 35px;
+}
+
+form *{
+    color: #ffffffff;
+    letter-spacing: 0.5px;
+    outline: none;
+    font-family: 'Poppins',sans-serif;
+    border: none;
+}
+
+form h3{
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 42px;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin-top: 30px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+input{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
+    color: white;
+    font-weight: bold;
+}
+::placeholder{
+    color: #e5e5e5;
+}
+
+input:hover,input:focus,input:active{
+   border-bottom: 2px solid white;
+}
+.form-button{
+    margin-top:50px;
+    width: 100%;
+    background-color:#ffffffff;
+    color:#080710;
+    padding: 15px 0px;
+    border-radius: 20px;
+    transition:0.4s
+}
+
+.form-button:hover{
+   transform: scale(1.03);
+}
+
+form .forgot-password{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.forgot-password a:hover{
+    text-decoration: none;
+    color: #c1ff2f;
+}
+
+@media(max-width:740px){
+    .background{
+        width: 500px;
+    }
+    .background .shape{
+        height: 150px;
+        width: 150px;
+    }
+    form{
+        width: 500px;
+    }
+}
+
+@media(max-width:555px){
+    .background{
+        width: 359px;
+    }
+    .background .shape{
+        height: 150px;
+        width: 150px;
+    }
+    form{
+        width: 340px;
+    }
+}
+
+@media(max-width:375px){
+    .background{
+        width: 328px;
+    }
+    .background .shape{
+        height: 135px;
+        width: 135px;
+    }
+    form{
+        width: 328px;
+    }
+}

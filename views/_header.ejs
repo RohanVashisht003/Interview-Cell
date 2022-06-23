@@ -1,0 +1,51 @@
+<div class="header-blue">
+    <nav class="navbar navbar-light navbar-expand-md navigation-clean-search">
+
+      <div class="container-fluid" >
+          <a class="navbar-brand" href="/">Placement Cell</a>
+          <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+              <span class="navbar-toggler-icon bg-light "></span>
+          </button>
+
+        <div class="collapse navbar-collapse" id="navcol-1">
+          <% if(locals.user) { %>
+             <!-- new buttons -->
+             <span class="navbar-text">
+              <a class="student-btn login" href="/student/form"
+              >Students</a>
+            </span>
+           
+            <span class="navbar-text">
+              <a class="interview-btn login" href="/interview/form"
+              >Interviews</a>
+
+            </span>
+            <span class="navbar-text"> 
+              <a class="login" href="/employee/sign-out">Sign Out</a>
+          </span>
+          <a class="btn btn-light action-button" role="button" href="/employee/update-password-form"
+          >Update Password</a>
+            <% } else { %>
+              <!-- new buttons -->
+              <span class="navbar-text">
+                <a class="student-btn login" href="/student/form"
+                >Students</a>
+              </span>
+             
+              <span class="navbar-text">
+                <a class="interview-btn login" href="/interview/form"
+                >Interviews</a>
+  
+              </span>
+            
+              <a class="btn btn-light action-button" role="button" href="/employee/sign-in"
+              >SignIn</a>
+
+              <a class="btn btn-light action-button" role="button" href="/employee/sign-up"
+              >SignUp</a>
+
+              <% } %>
+        </div>
+      </div>
+    </nav>
+  </div>

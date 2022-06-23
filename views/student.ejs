@@ -1,0 +1,145 @@
+<link rel="stylesheet" href="/css/student.css" />
+
+<div id="outer">  
+
+  <% if(locals.user) {%>
+  <button type="button" class="btn bg-light main-button" onclick="toggler()" id="btn-main">Open Form</button>
+
+<div id="collapse" class="main-container" style="display:none;">
+    <div class="background"></div>
+    <form action="/student/create" method="POST">
+      <div class="form-row">
+       
+        <div class="form-group col-md-6">
+          <label for="name">Name</label>
+          <input type="text" class="" id="name" placeholder="Name" name="name"required/>
+        </div>
+       
+        <div class="form-group col-md-6">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            class=""
+            id="email"
+            placeholder="Email"
+            name="email"
+          required/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="college">College Name</label>
+        <input
+          type="text"
+          class=""
+          placeholder="College Name"
+          id="college"
+          name="college"
+        required/>
+      </div>
+      <div class="form-row">
+       
+        <div class="form-group col-md-4">
+          <label for="webDev">Web Dev Score</label>
+          <input
+            type="number"
+            class=""
+            placeholder="Enter Score"
+            id="webDev"
+            name="webDevScore"
+         required />
+        </div>
+  
+       
+        <div class="form-group col-md-4">
+          <label for="dsa">DSA Score</label>
+          <input
+            type="number"
+            class=""
+            placeholder="Enter Score"
+            id="dsa"
+            name="dsaScore"
+         required />
+        </div>
+  
+       
+        <div class="form-group col-md-4">
+          <label for="react">React Score</label>
+          <input
+            type="number"
+            class=""
+            placeholder="Enter Score"
+            id="react"
+            name="reactScore"
+          required/>
+        </div>
+      </div>
+  
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="batch">Batch</label>
+          <input
+            type="text"
+            class=""
+            id="batch"
+            placeholder="Batch"
+            name="batch"
+         required />
+        </div>
+        <div class="form-group col-md-4">
+          <label for="status">Status</label>
+          <select id="status" class="form-control" style="background-color: #00e9ff"
+          name="status">
+            <option value="notPlaced"selected>Not Placed</option>
+            <option value="placed">Placed</option>
+          </select>
+        </div>
+      </div>
+  
+      <div class="d-flex justify-content-center mt-4"><button type="submit" class="btn btn-primary col-md-6">Add Student</button></div>
+   
+    </form>
+  </div>
+<%}%>
+
+  <!-- Student List -->
+  <div id="list-container">
+    <table class="table text-white table-hover">
+      <thead>
+        <tr>
+          <th scope="col" colspan="1">Name</th>
+          <th scope="col"  colspan="1">Batch</th>
+          <th scope="col"  colspan="4">College</th>
+          <th scope="col"  colspan="1">Status</th>
+          <% if(locals.user){ %>
+          <th scope="col"  colspan="2">Action</th>
+          <%}%>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(student of students) {%>
+          <%- include('_studentList.ejs'); -%>
+          <% } %>
+      </tbody>
+    </table>
+   
+  </div>
+ 
+</div>
+                                            
+<script>
+
+  function toggler(){
+    var x = document.getElementById('collapse');
+    var btn = document.getElementById('btn-main');
+    var page = document.getElementById('outer');
+    var width = window.innerWidth;
+    if(x.style.display === 'none'){
+      x.style.display = 'block';
+      btn.textContent = 'Close Form';
+    }
+    else{
+      x.style.display = 'none';
+      btn.textContent = 'Open Form';
+    }
+  }
+</script>
