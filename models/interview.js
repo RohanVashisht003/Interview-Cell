@@ -8,10 +8,10 @@ const InterviewSchema = new mongoose.Schema({
         type:mongoose.Schema.Types.ObjectId,
         ref:'Student'
     }],
-    company:[{
+    company:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'Company'
-    }]
+    }
 
 });
 

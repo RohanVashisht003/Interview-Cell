@@ -15,7 +15,7 @@ const StudentSchema = new mongoose.Schema({
     },
     status:{
         type:String,
-        enum:['placed', 'notPlaced'],
+        enum:['Placed', 'Not Placed'],
     },
     webDev:{
       name:{

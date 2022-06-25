@@ -1,13 +1,16 @@
 <link rel="stylesheet" href="/css/home.css">
 
 <div class="home-main-container">
-    <div class="content-container">
-        <div class="text-container">
-            <h1>Welcome to the app</h1>
+    <div class="background-container">
+        <div class="content-container">
+            <% if(locals.user) {%>
+                <h1>Hi</h1>
+                <h3><%= locals.user.name %></h3>
+            <%}%>
+            <br>
+            <br>
+            <h5>Welcome to Placement Cell</h5>
         </div>
     </div>
-
-    <div class="background-container">
-
-    </div>
+   
 </div>

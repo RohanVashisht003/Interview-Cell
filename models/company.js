@@ -4,9 +4,9 @@ const CompanySchema = new mongoose.Schema({
     name:{
         type:String
     },
-    interview:[{
+    student:[{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'Interview'
+        ref:'Student'
     }]
 });
 

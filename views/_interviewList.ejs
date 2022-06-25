@@ -1,17 +1,17 @@
-<tr  class="fw-normal text-center" id="">
-    <!-- name -->
+<tr  class="tr text-center" >
+    <!--date -->
     <td class="align-middle"  colspan="4">
-        <span><%=interview.company.name  %></span>
+        <span><%= interview.date.toString().slice(0,16) %></span>
     </td>
 
-    <!-- status -->
+    <!--company name -->
     <td class="align-middle" colspan="4">
-        <span><%=interview.date.toString().substring(0,21)%></span>
+        <span><%= interview.company.name %></span>
     </td>
     <% if(locals.user) { %>
     <!-- action -->
-    <td class="align-middle" colspan="1">
-      <a href="/interview/see-list/<%= interview.company.id%>" data-mdb-toggle="tooltip" title="See List"><i class="fa-solid fa-angles-right mr-3"></i></a>
+    <td class="align-middle action-field" colspan="1">
+      <a href="/interview/see-list/<%= %>" data-mdb-toggle="tooltip" title="See List"><i class="fa-solid fa-angles-right mr-3"></i></a>
       <a href="/interview//<%=  %>" data-mdb-toggle="tooltip" title="Delete"><i
       class="fas fa-trash-alt fa-lg text-warning"></i></a>
     </td>

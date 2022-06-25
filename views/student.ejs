@@ -89,8 +89,8 @@
           <label for="status">Status</label>
           <select id="status" class="form-control" style="background-color: #00e9ff"
           name="status">
-            <option value="notPlaced"selected>Not Placed</option>
-            <option value="placed">Placed</option>
+            <option value="Not Placed"selected>Not Placed</option>
+            <option value="Placed">Placed</option>
           </select>
         </div>
       </div>
@@ -103,15 +103,15 @@
 
   <!-- Student List -->
   <div id="list-container">
-    <table class="table text-white table-hover">
+    <table class="table">
       <thead>
         <tr>
-          <th scope="col" colspan="1">Name</th>
-          <th scope="col"  colspan="1">Batch</th>
-          <th scope="col"  colspan="4">College</th>
-          <th scope="col"  colspan="1">Status</th>
+          <th scope="col" class="thead-th" colspan="1">Name</th>
+          <th scope="col" class="thead-th" colspan="1">Batch</th>
+          <th scope="col"class="thead-th"  colspan="4">College</th>
+          <th scope="col" class="thead-th" colspan="1">Status</th>
           <% if(locals.user){ %>
-          <th scope="col"  colspan="2">Action</th>
+          <th scope="col" class="thead-th"  colspan="2" class="action-header">Action</th>
           <%}%>
         </tr>
       </thead>

@@ -13,24 +13,12 @@
     padding: 10px;
 }
 .main-container{
-    height: 87vh;
+    height: 100vh;
     justify-content: center;
     align-items: center;
-    min-width: 375px;
+    min-width: 480px;
 }
 
-.background{
-    background: linear-gradient(45deg, rgba(249, 123, 6, 0.174) 1%, rgba(9,9,121,0.5975432409291841) 21%, #2464b8 100%);
-    /* background-color:#032d6b ; */
-    width: 80%;
-    height: 67%;
-    position: absolute;
-    transform: translate(-50%,-50%);
-    left: 50%;
-    top: 58%;
-    border-radius: 10px;
-    min-width: 375px;
-}
 
 form *{
     color: #ffffffff;
@@ -40,20 +28,35 @@ form *{
     font-family: 'Poppins',sans-serif;
 }
 
-form{
-    min-width: 375px;
+.form-1{
+    min-width: 376px;
     width: 80%;
-    height: 423px;
+    height: 282px;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 14px rgb(8 7 16 / 60%);
-    padding: 50px 35px;
+    padding: 5px 36px;
     position: relative;
     left: 10%;
     top: 2%;
     background-color: rgba(255,255,255,0.13);
-   
+    margin-bottom:5px;
+}
+
+.form-2{
+    min-width:376px;
+    width: 80%;
+    height: 265px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 14px rgb(8 7 16 / 60%);
+    padding: 5px 36px;
+    position: relative;
+    left: 10%;
+    top: 2%;
+    background-color: rgba(255,255,255,0.13);
 }
 
 label{
@@ -83,32 +86,55 @@ input{
 }
 
 #list-container{
-    border: 1px solid white;
     height:80vh;
     width:90%;
     margin: 3px auto;
-    box-shadow: 0px 0px 5px 2px #d6e0f0;
     overflow-y: scroll;
-    padding: 3px;
-    background: rgb(176, 166, 166);
     margin-bottom: 20px;
     margin-top: 20px;
+    border-radius: 10px;
 }
 #list-container::-webkit-scrollbar,.main-container::-webkit-scrollbar,
 form::-webkit-scrollbar{
     display: none;
 }
 
+
 thead{
   position: sticky;
   top:0px;
+  background-color: rgba(0, 0, 0, 0.749);
 }
 thead tr{
     text-align: center;
-    color:white;
 }
 
-thead tr th{
-    border: 1px solid white;
-    background-color: orange;
+
+.table .thead-th{
+    border-top: 0px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px;
+}
+
+tbody tr{
+    height: 70px;
+    color: #fff;
+    font-size: 15px;
+    vertical-align: middle;
+    border-top: 12px solid white;
+}
+tbody tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0.123);
+}
+
+
+.action-field{
+    background: #ff7e10;
+    width: 20px;
+}
+.action-header{
+    width: 20px;
 }

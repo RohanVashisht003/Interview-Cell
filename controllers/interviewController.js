@@ -5,22 +5,14 @@ const Company = require('../models/company');
 
 module.exports.renderPage = async (req, res) => {
     try {
-        let students = await Student.find({}).
-        sort({
-            name: 1
-        });
         let interviews = await Interview.find({}).sort('-createdAt').populate('company');
-        let companies = await Company.find({}).sort('-createdAt').populate({
-            path:'interview',
-            populate:{
-                path:'student'
-            }
-        });
+        console.log('interviews', interviews);
+        let students = await Student.find({}).sort({'name':1});
+
         return res.render('interview', {
             title: 'Interviews',
-            students: students,
             interviews: interviews,
-            companies:companies
+            students:students
         });
     } catch (err) {
         console.log('Error', err);
@@ -30,42 +22,53 @@ module.exports.renderPage = async (req, res) => {
 }
 
 // create interview
-module.exports.create = async (req, res) => {
+module.exports.createInterview = async (req, res) => {
     try {
         await Company.create({
             name: req.body.companyName
         }, (err, company) => {
-            if (err) {
-                console.log('err in creating company', err);
-                return;
+            if(err){
+                console.log("error ",err);
             }
-            console.log("company id", company.id);
+            // console.log("Company", company);
             Interview.create({
-                company: company.id,
-                student: req.body.student,
-                date: req.body.date
+                date: req.body.date,
+                company: company.id
             }, (err, interview) => {
                 if (err) {
-                    console.log('err in creating interview', err);
-                    return;
+                    console.log("err", err)
                 }
-                company.interview.push(interview.id);
-                company.save();
-                console.log("successfully pushed into company's interview");
-                Student.findById(req.body.student, (err, student) => {
-                    if (err) {
-                        console.log('err in finding student', err);
-                        return;
-                    }
-                    student.interview.push(interview.id);
-                    student.save();
-                    console.log("successfully pushed into student's interview");
-                })
-                console.log("interview created successfully", interview);
-                return res.redirect('back');
+                console.log("interview created", interview);
             });
+
+            return res.redirect('/interview/form');
         });
     } catch (err) {
+        console.log('Error', err);
+        return;
+    }
+}
+
+// allocate student
+module.exports.addStudent = (req,res)=>{
+    try{
+        console.log(req.body.student);
+        Interview.find({date:req.body.date},(err,interview)=>{
+            if(err){
+                console.log("err",err);
+                return;
+            }
+            if(interview){
+                interview.student.push(req.body.student);
+                
+                console.log("Student allocated");
+                return;
+            }
+            console.log("First create an interview");
+            return;
+        });
+    }
+    catch(err){
         console.log('Error', err);
         return;
     }
@@ -76,15 +79,15 @@ module.exports.seeStudentList = async (req, res) => {
     try {
         console.log("company id", req.params.id);
         let company = await Company.findById(req.params.id).populate({
-            path:'interview',
-            populate:{
-                path:'student'
+            path: 'interview',
+            populate: {
+                path: 'student'
             }
         });
         console.log("company", company);
         return res.render('studentInterviewList', {
             title: 'List of Students',
-            company:company.interview
+            company: company.interview
         });
     } catch (err) {
         console.log('Error', err);
