@@ -3,7 +3,7 @@
     min-height: 100vh;
     display:flex;
     flex-direction: column;
-    background-color: #032d6b;
+    background:linear-gradient(135deg, #8db31b 0%,#fad961 100%);
     min-width: 376px;
 }
 
@@ -40,7 +40,7 @@ form *{
     position: relative;
     left: 10%;
     top: 2%;
-    background-color: rgba(255,255,255,0.13);
+    background-color: #544d5d;
     margin-bottom:5px;
 }
 
@@ -56,7 +56,8 @@ form *{
     position: relative;
     left: 10%;
     top: 2%;
-    background-color: rgba(255,255,255,0.13);
+    background-color: #544d5d;
+    align-items: center;
 }
 
 label{
@@ -108,7 +109,10 @@ thead{
 thead tr{
     text-align: center;
 }
-
+.table{
+    background: linear-gradient(135deg, #F5515F 0%,#A1051D 100%);
+    font-weight: 600;
+}
 
 .table .thead-th{
     border-top: 0px;
@@ -129,7 +133,6 @@ tbody tr{
 tbody tr:nth-child(even){
     background-color: rgba(255, 255, 255, 0.123);
 }
-
 
 .action-field{
     background: #ff7e10;

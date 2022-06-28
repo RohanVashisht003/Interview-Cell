@@ -7,6 +7,8 @@ const session = require('express-session');
 const passport = require('passport');
 const passportLocal = require('./config/passport-local-strategy');
 const MongoStore = require('connect-mongo');
+const flash = require('connect-flash');
+const flashMiddleWare = require('./config/flash-middleware');
 const expressLayouts = require('express-ejs-layouts');
 
 // using static files
@@ -46,6 +48,9 @@ app.use(session({
       
     )
 }));
+
+app.use(flash());
+app.use(flashMiddleWare.setFlash);
 
 app.use(passport.initialize());
 app.use(passport.session());

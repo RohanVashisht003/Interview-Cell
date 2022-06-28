@@ -4,9 +4,15 @@ const InterviewSchema = new mongoose.Schema({
     date:{
         type:Date
     },
-    student:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Student'
+    students:[{
+        student:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Student'
+        },
+        result:{
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'Result'
+        }
     }],
     company:{
         type:mongoose.Schema.Types.ObjectId,

@@ -5,21 +5,22 @@ const employeeController = require('../controllers/employeeController');
 
 // sign in
 router.get('/sign-in', employeeController.signIn);
-router.post('/create-session',passport.authenticate('local',{
-    failureRedirect:'/employee/sign-in'
-}),employeeController.createSession);
+router.post('/create-session', passport.authenticate('local', {
+    failureRedirect: '/employee/sign-in'
+}), employeeController.createSession);
 
 
 // sign up
 router.get('/sign-up', employeeController.signUp);
-router.post('/create',employeeController.create);
+router.post('/create', employeeController.create);
 
 
 // sign out
-router.get('/sign-out',employeeController.destroySession);
+router.get('/sign-out', employeeController.destroySession);
 
-router.get('/update-password-form',employeeController.updatePasswordForm);
-router.post('/update-password',employeeController.updatePassword);
+// update password for employee
+router.get('/update-password-form', passport.checkAuthentication, employeeController.updatePasswordForm);
+router.post('/update-password', passport.checkAuthentication, employeeController.updatePassword);
 
 
 module.exports = router;

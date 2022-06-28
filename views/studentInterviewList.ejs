@@ -1,22 +1,36 @@
  <link rel="stylesheet" href="/css/studentInterviewList.css">
  <!-- Student List -->
- <div id="list-container">
-    <table class="table text-white table-hover">
+ <div id="outer">
+  <div class="common-details">
+    <div class="form-group">
+      <label for="companyName">Company Name</label>
+      <input type="text" id="companyName" readonly value="<%=interviews.company.name %>">
+    </div>
+   
+    <div class="form-group">
+      <label for="interviewDate">Interview Date</label>
+      <input type="text" id="interviewDate" readonly value="<%=interviews.date.toString().slice(0,16) %>">
+    </div>
+   
+  </div>
+
+  <div id="list-container">
+    <table class="table text-white">
       <thead>
         <tr>
-          <th scope="col" colspan="1">Company Name</th>
-          <th scope="col"  colspan="1">Student Name</th>
-          <th scope="col"  colspan="3">Interview Date</th>
-          <th scope="col"  colspan="2">Status</th>
+          <th scope="col" colspan="4"  class="thead-th">Student Name</th>
+          <th scope="col"  colspan="2"  class="thead-th">Result</th>
           <% if(locals.user){ %>
-          <th scope="col"  colspan="2">Action</th>
+          <th scope="col"  colspan="1"  class="thead-th">Action</th>
           <%}%>
         </tr>
       </thead>
       <tbody>
-        <% for(company of company) {%> 
-          <%- include('_interviewStudent.ejs'); -%>
+        <% for(student of interviews.students) {%> 
+          <%- include('_interviewStudent.ejs',{interviews}); -%>
         <% } %>
       </tbody>
     </table>
   </div>
+</div>
+ 

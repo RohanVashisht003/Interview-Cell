@@ -1,4 +1,5 @@
 const Student =  require('../models/student');
+const Interview = require('../models/interview');
 
 module.exports.renderPage = async(req, res)=>{
     try{
@@ -30,6 +31,7 @@ module.exports.create = async(req,res)=>{
         react:{score:req.body.reactScore},
         dsa:{score:req.body.dsaScore}
         });
+        req.flash('success','Student created successfully');
         console.log("student created successfully",student);
         return res.redirect('/student/form');
     }
@@ -39,23 +41,10 @@ module.exports.create = async(req,res)=>{
     }
 }
 
-// delete student
-module.exports.delete = async(req,res)=>{
-    try{
-        let student = await Student.findByIdAndDelete(req.params.id);
-        console.log("student",student);
-        return res.redirect('back');
-    }
-    catch(err){
-        console.log(err);
-        return res.redirect('back');
-    }
-}
 
 // render student update page
  module.exports.studentProfile =(req, res)=>{
         Student.findById(req.params.id,(err,student)=>{
-            console.log("student",student);
             return res.render('updatePage',{
             title:'Update Student',
             student:student
@@ -76,10 +65,12 @@ module.exports.update = async(req, res)=>{
             student.dsa={score:req.body.dsaScore}
 
             student.save();
+            req.flash('success','Student details updated successfully')
             console.log("Student details updated successfully");
             return res.redirect('/student/form');
         }
         else{
+            req.flash('error','Studen not found');
             console.log("Studnet not found");
         }   
     }

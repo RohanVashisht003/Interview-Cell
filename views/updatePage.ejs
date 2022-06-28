@@ -1,7 +1,6 @@
 <link rel="stylesheet" href="/css/updatePage.css">
 
 <div class="main-container" style="display:block;">
-    <div class="background"></div>
     <form action="/student/update/<%= student.id %>" method="POST">
       <div class="form-row">
        
@@ -89,10 +88,11 @@
         </div>
         <div class="form-group col-md-4">
           <label for="status">Status</label>
-          <select id="status" class="form-control" style="background-color: #00e9ff"
-          name="status" value="<%= student.status %>">
-            <option value="notPlaced"selected>Not Placed</option>
-            <option value="placed">Placed</option>
+          <select id="status" class="form-control" style="background-color: #d8d8d8"
+          name="status">
+          <option hidden selected disabled><%= student.status%></option>
+            <option value="Not Placed">Not Placed</option>
+            <option value="Placed">Placed</option>
           </select>
         </div>
       </div>

@@ -18,7 +18,8 @@ passport.use(new LocalStrategy({
             return done(err);
         }
         if(!user){
-            console.log('User not registered');
+            req.flash('information','Employee not registered')
+            console.log('Employee not registered');
             return done(null, false);
         }
        bcrypt.compare(req.body.password, user.password,(err,result)=>{
@@ -26,6 +27,7 @@ passport.use(new LocalStrategy({
             return done(null,user);
         }
         else{
+            req.flash('error','Invalid email/password')
             console.log('error','Invalid email/password');
             return done(null, false);
         }

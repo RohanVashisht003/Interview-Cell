@@ -39,6 +39,27 @@
     }
 
 
+p{
+  top:40px;
+  text-align: center;
+  position: relative;
+  font-size: 1.8em;
+  letter-spacing: 2px;
+  transform: rotate(0deg);
+  font-weight:400;
+  color:#cbbfb0; 
+  text-shadow:1px 1px hsl(0deg 0% 100%),
+              2px 2px hsl(0deg 0% 0%),
+               3px 3px hsl(50, 50%, 35%),
+               4px 4px hsl(50, 50%, 34%),
+               5px 5px hsl(50, 50%, 33%),
+               6px 6px hsl(50, 50%, 32%),
+               7px 7px hsl(50, 50%, 31%),
+               8px 8px hsl(50, 50%, 30%),
+               9px 9px hsl(50, 50%, 29%),
+               10px 10px hsl(50, 50%, 28%),
+               10px 10px 30px rgba(0,0,0,.7);
+}
 
 h1,h3,h5{
     text-align: center;

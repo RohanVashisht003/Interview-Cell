@@ -6,10 +6,14 @@
             <% if(locals.user) {%>
                 <h1>Hi</h1>
                 <h3><%= locals.user.name %></h3>
-            <%}%>
             <br>
             <br>
             <h5>Welcome to Placement Cell</h5>
+            <% }else{%>
+                <br>
+                <h5>Welcome to Placement Cell</h5>
+            <p>Please SignIn/SignUp to continue</p>
+            <%}%>
         </div>
     </div>
    

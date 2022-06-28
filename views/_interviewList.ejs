@@ -11,9 +11,8 @@
     <% if(locals.user) { %>
     <!-- action -->
     <td class="align-middle action-field" colspan="1">
-      <a href="/interview/see-list/<%= %>" data-mdb-toggle="tooltip" title="See List"><i class="fa-solid fa-angles-right mr-3"></i></a>
-      <a href="/interview//<%=  %>" data-mdb-toggle="tooltip" title="Delete"><i
-      class="fas fa-trash-alt fa-lg text-warning"></i></a>
+      <a href="/interview/see-list/<%=interview.id%>" data-mdb-toggle="tooltip" title="See List"><i class="fa-solid fa-angles-right mr-2 "></i></a>
+      <a href="/interview/update-page/<%=interview.id%>"><i class="fas fa-edit fa-lg text-white mr-2"></i></a>
     </td>
     <%}%>
 </tr>

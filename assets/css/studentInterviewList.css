@@ -1,30 +1,111 @@
+#outer{
+    height: auto;
+    min-height: 100vh;
+    display:flex;
+    flex-direction: column;
+    background:linear-gradient(135deg, #8db31b 0%,#fad961 100%);
+    min-width: 376px;
+}
+
 #list-container{
-    border: 1px solid white;
     height:80vh;
     width:90%;
     margin: 3px auto;
-    box-shadow: 0px 0px 5px 2px #d6e0f0;
     overflow-y: scroll;
-    padding: 3px;
-    background: rgb(176, 166, 166);
     margin-bottom: 20px;
     margin-top: 20px;
+    border-radius: 10px;
 }
 #list-container::-webkit-scrollbar,.main-container::-webkit-scrollbar,
 form::-webkit-scrollbar{
     display: none;
 }
 
+
 thead{
   position: sticky;
   top:0px;
+  background-color: rgba(0, 0, 0, 0.749);
 }
 thead tr{
     text-align: center;
-    color:white;
 }
 
-thead tr th{
-    border: 1px solid white;
-    background-color: orange;
+.table{
+    background: linear-gradient(135deg, #F5515F 0%,#A1051D 100%);
+    font-weight: 600;
+}
+
+.table .thead-th{
+    border-top: 0px;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    padding: 12px;
+}
+
+tbody tr{
+    height: 70px;
+    color: #fff;
+    font-size: 15px;
+    vertical-align: middle;
+    border-top: 12px solid white;
+}
+tbody tr:nth-child(even){
+    background-color: rgba(255, 255, 255, 0.123);
+}
+
+
+.action-field{
+    background: #ff7e10;
+    width: 20px;
+}
+.action-header{
+    width: 20px;
+}
+
+.result-form{
+    width: 164px;
+    margin: auto;
+}
+.set-result-button{
+    border: none;
+    all: unset;
+    color: #14ff00d6;
+    font-size: 19px;
+}
+
+.common-details{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+label{
+    display: block;
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+input{
+    display: block;
+    height: 50px;
+    width: 80%;
+    background-color: #727272;
+    border-radius: 6px;
+    border: none;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 22px;
+    font-weight: 300;
+    color: white;
+    font-weight: bold;
+    margin: auto;
+    text-align: center;
+    
+}
+
+td button:hover{
+    color: rgb(206, 198, 198);
 }

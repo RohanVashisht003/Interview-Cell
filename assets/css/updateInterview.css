@@ -1,10 +1,9 @@
 .main-container{
     height: 111vh;
-    /* margin: 10px auto; */
-    justify-content: center;
-    align-items: center;
+   
     min-width: 375px;
     background:#2464b8 ;
+    
 }
 
 
@@ -18,19 +17,15 @@ form *{
 }
 
 form{
-    min-width: 375px;
-    width: 80%;
-    height: 590px;
+    width: 60%;
+    height: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 14px rgb(8 7 16 / 60%);
     padding: 50px 35px;
-    position: relative;
-    left: 10%;
-    top: 12%;
     background-color: rgba(255,255,255,0.13);
-   
+   margin: auto;
 }
 
 label{
@@ -58,15 +53,3 @@ input{
     color: #e5e5e5;
 }
 
-@media(max-width:768px){
-    .main-container{
-        height:200vh
-    }
-    .background{
-        height:158%;
-        top:115%;
-    }
-    form{
-        height:159vh;
-    }
-}

@@ -4,10 +4,10 @@ const CompanySchema = new mongoose.Schema({
     name:{
         type:String
     },
-    student:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:'Student'
-    }]
+    date:{
+        type:Date
+    },
+   
 });
 
 const Company = mongoose.model('Company',CompanySchema);
