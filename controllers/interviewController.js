@@ -3,8 +3,10 @@ const Student = require('../models/student');
 const Company = require('../models/company');
 const Result = require('../models/result');
 
+// rendering interviews page
 module.exports.renderPage = async (req, res) => {
     try {
+        // find interviews and populate company
         let interviews = await Interview.find({}).sort('-createdAt').populate('company');
         let students = await Student.find({}).sort({
             'name': 1
@@ -26,11 +28,13 @@ module.exports.renderPage = async (req, res) => {
 // create interview
 module.exports.createInterview = async (req, res) => {
     try {
+        // find company
         let company = await Company.findOne({
             name: req.body.companyName,
         });
-
+// not found
         if (!company) {
+            // create company
             Company.create({
                 name: req.body.companyName,
                 date: req.body.date
@@ -40,6 +44,7 @@ module.exports.createInterview = async (req, res) => {
                     console.log("cant create company", err);
                     return res.redirect("back");
                 }
+                // create interview
                 Interview.create({
                     date: req.body.date,
                     company: new_company.id
@@ -54,7 +59,9 @@ module.exports.createInterview = async (req, res) => {
                     return res.redirect('back');
                 });
             })
-        } else {
+        }
+        // found 
+        else {
             req.flash('information',"Interview already exist");
             console.log("Interview already exist");
             return res.redirect('back');
@@ -69,20 +76,24 @@ module.exports.createInterview = async (req, res) => {
 // allocate student
 module.exports.addStudent = async (req, res) => {
     try {
+        // find company
         let company = await Company.findOne({
             name: req.body.companyName
         });
+        // found
         if (company) {
             let interview = await Interview.findOne({
                 company: company.id
             });
 
+            // create result for interview
             let result = await Result.create({
                 companyName: company.name,
                 interviewDate: req.body.date,
                 resultValue: req.body.result
             });
 
+            // update student and push into interviews array
             let student = await Student.updateOne({
                 id: req.body.student
             }, {
@@ -94,7 +105,7 @@ module.exports.addStudent = async (req, res) => {
                     }]
                 }
             });
-
+// update interview and push into students array
             Interview.updateOne({
                 company: company.id
             }, {
@@ -111,7 +122,9 @@ module.exports.addStudent = async (req, res) => {
             });
             req.flash('success',"Student assigned successfully");
             return res.redirect('back');
-        } else {
+        }
+        // if not found 
+        else {
             req.flash('error',"Interview not found");
             console.log("interview not found");
             return res.redirect('back');
@@ -125,7 +138,7 @@ module.exports.addStudent = async (req, res) => {
 // see student list
 module.exports.seeStudentList = async (req, res) => {
     try {
-        // console.log("interview id", req.params.id);
+        // find interview and populate students, results and company
         let interview = await Interview.findById(req.params.id).populate({
             path: 'students',
             populate: {
@@ -150,7 +163,9 @@ module.exports.seeStudentList = async (req, res) => {
 
 // setResult
 module.exports.setResult = (req, res) => {
+    // if data passed to result
     if (req.body.result !== undefined) {
+        // find and update result
         let result = Result.findByIdAndUpdate(req.params.id, {
             resultValue: req.body.result
         }, (err) => {
@@ -170,6 +185,7 @@ module.exports.setResult = (req, res) => {
 
 // render interview update page
 module.exports.updatePage = async (req,res)=>{
+    // find interview and populate company
     let interview = await Interview.findOne({id:req.params.id}).populate('company');
         return res.render('updateInterview',{
             title:"Update Interview",
@@ -177,22 +193,30 @@ module.exports.updatePage = async (req,res)=>{
         });
 }
 
+// update interview details
 module.exports.update = async(req, res)=>{
+    // find interview
     let interview = await Interview.findById(req.params.id);
+    // find company
     let company = await Company.findById(interview.company);
+    // if no date entered
     if(req.body.date === ''){
         company.name=req.body.companyName
     }
+    // if no company entered
     else if(req.body.companyName=== ''){
         interview.date = req.body.date; 
     }
+    // if nothing entered
     else if(req.body.companyName === '' && req.body.date ===''){
         return;
     }
+    // if both fields entered
     else{
         interview.date = req.body.date;
         company.date=req.body.date;
     }
+    // save schemas
     interview.save();
     company.save();
     req.flash('success',"Interview details updated successfully");

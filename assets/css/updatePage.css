@@ -1,10 +1,9 @@
 .main-container{
     height: 111vh;
-    /* margin: 10px auto; */
     justify-content: center;
     align-items: center;
     min-width: 375px;
-    background:#2464b8 ;
+    background:#6b5d5d ;
 }
 
 

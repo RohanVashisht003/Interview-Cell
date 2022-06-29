@@ -1,9 +1,10 @@
+/* outer */
 #outer{
     height: auto;
     min-height: 100vh;
     display:flex;
     flex-direction: column;
-    background:linear-gradient(135deg, #8db31b 0%,#fad961 100%);
+    background:#6b5d5d;
     min-width: 376px;
 }
 
@@ -35,7 +36,6 @@ form{
     width: 80%;
     height: 590px;
     border-radius: 10px;
-    /* backdrop-filter: blur(10px); */
     border: 2px solid rgba(255,255,255,0.1);
     box-shadow: 0 0 14px rgb(8 7 16 / 60%);
     padding: 50px 35px;

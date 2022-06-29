@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// result schema
 const ResultSchema = new mongoose.Schema({
     
     companyName:{

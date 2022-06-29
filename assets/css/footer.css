@@ -1,9 +1,10 @@
+/* footer */
 #sticky-footer{
-    background-color: #808080;
+    background-color: #3d3c3a;
     color: white;
     margin-top: auto;
     
 }
 #sticky-footer a{
-    color: rgb(57, 29, 216);
+    color: rgb(235, 195, 53);
 }

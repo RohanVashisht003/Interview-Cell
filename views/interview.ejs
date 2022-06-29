@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/css/interview.css" />
-
+<!-- outer main -->
 <div id="outer">
   <% if(locals.user) {%>
   <button
@@ -12,7 +12,9 @@
   </button>
 
   <div id="collapse" class="main-container" style="display: none">
+
     <form action="/interview/create-interview" class="form-1" method="POST">
+      <!-- company name -->
       <div class="form-group">
         <label for="companyName">Company Name</label>
         <input
@@ -24,12 +26,12 @@
           required
         />
       </div>
-
+<!-- date -->
       <div class="form-group">
         <label for="batch">Date</label>
         <input type="date" class="" id="date" name="date" required />
       </div>
-
+<!-- button -->
       <div class="d-flex justify-content-center mt-4">
         <button type="submit" class="btn btn-primary col-md-6">
           Add Interview
@@ -39,8 +41,7 @@
 
     <form class="form-2" action="/interview/add-student" method="POST">
       <div class="form-group">
-        <!-- <label for="batch">Interview Date</label>
-        <input type="date" class="" id="date" name="date" required /> -->
+        <!-- company name -->
         <label for="companyName">Company Name</label>
         <input
           type="text"
@@ -51,6 +52,7 @@
           required
         />
       </div>
+      <!-- button -->
       <div class="form-row">
         <div class="form-group col-6">
           <label for="student">Allocate Student</label>
@@ -60,6 +62,7 @@
             style="background-color: #d8d8d8"
             name="student"
           >
+          <!-- iterating over students row -->
             <% for(student of students) { %>
             <option value="<%=student.id %>" selected>
               <%=student.name %><span> (<%=student.email %>)</span>
@@ -73,11 +76,14 @@
             id="result"
             class="form-control"
             style="background-color: #d8d8d8"
-            name="result">
+            name="result"
+          >
             <option value="PASS">PASS</option>
             <option value="FAIL">FAIL</option>
             <option value="On Hold">On Hold</option>
-            <option value="Did not attempted"  selected>Did not attempted</option>
+            <option value="Did not attempted" selected>
+              Did not attempted
+            </option>
           </select>
         </div>
       </div>
@@ -97,16 +103,13 @@
           <th scope="col" class="thead-th" colspan="4">Interview Date</th>
           <th scope="col" class="thead-th" colspan="4">Company Name</th>
           <% if(locals.user){ %>
-          <th scope="col" class="action-header thead-th" colspan="1">
-            Action
-          </th>
+          <th scope="col" class="action-header thead-th" colspan="1">Action</th>
           <%}%>
         </tr>
       </thead>
       <tbody>
-        <% for(interview of interviews){%> 
-          <%- include('_interviewList.ejs'); -%> 
-          <%}%>
+        <% for(interview of interviews){%> <%- include('_interviewList.ejs');
+        -%> <%}%>
       </tbody>
     </table>
   </div>

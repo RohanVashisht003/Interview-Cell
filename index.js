@@ -31,13 +31,14 @@ app.set('view engine','ejs');
 // setting views
 app.set('views','./views');
 
+// using sessions
 app.use(session({
     name:'placement-cell',
     secret:'blabla',
     saveUninitialized:false,
     resave:false,
     cookie:{
-        maxAge:(1000*3600000)
+        maxAge:(1000*1800)
     },
     store: MongoStore.create({
         mongoUrl: 'mongodb+srv://rohan003:000@placement-cell.da4ryif.mongodb.net/?retryWrites=true&w=majority',
@@ -49,6 +50,7 @@ app.use(session({
     )
 }));
 
+// using flash 
 app.use(flash());
 app.use(flashMiddleWare.setFlash);
 

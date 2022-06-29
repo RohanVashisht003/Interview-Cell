@@ -1,33 +1,31 @@
+/* main header container */
 .header-blue{
-    background-color: 	#032d6b;
-    font-family: 'Source Sans Pro', sans-serif;
-    width: 100%;
-    position: sticky;
-    z-index: 1;
-    top:0px;
+  background-color: #3d3c3a;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 100%;
+  position: sticky;
+  z-index: 1;
+  top: 0px;
+  height: 67px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .header-blue .navbar {
     background: transparent;
-    padding-top: .75rem;
-    padding-bottom: .75rem;
     color: #fff;
     border-radius: 0;
     box-shadow: none;
     border: none;
   }
 
-  .header-blue .navbar .navbar-brand {
+  .header-blue .navbar .navbar-brand img {
     font-weight: bold;
     color: inherit;
-    /* border: 1px solid black; */
     padding: 8px;
     border-radius: 20px;
-    background-color: rgb(244, 140, 13);
-  }
-
-  .header-blue .navbar .navbar-brand:hover {
-    color: #141311d8;
+    height: 60px;
   }
 
   .header-blue .navbar .navbar-collapse {
@@ -35,6 +33,7 @@
     margin-top: .5rem;
   }
 
+  /* for navbar collapse */
   @media (min-width:768px) {
     .header-blue .navbar .navbar-collapse {
       border-color: transparent;
@@ -44,6 +43,7 @@
     }
   }
 
+  
   .header-blue .navbar .navbar-collapse span .login {
     color: rgb(249, 249, 249);
     margin-right: .5rem;

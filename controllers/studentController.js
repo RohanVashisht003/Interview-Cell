@@ -1,8 +1,10 @@
 const Student =  require('../models/student');
 const Interview = require('../models/interview');
 
+// render student page
 module.exports.renderPage = async(req, res)=>{
     try{
+        // find and sort students
         let students = await Student.find({})
         .sort('-createdAt');
 
@@ -44,6 +46,7 @@ module.exports.create = async(req,res)=>{
 
 // render student update page
  module.exports.studentProfile =(req, res)=>{
+    // find student
         Student.findById(req.params.id,(err,student)=>{
             return res.render('updatePage',{
             title:'Update Student',
@@ -54,6 +57,7 @@ module.exports.create = async(req,res)=>{
 
 module.exports.update = async(req, res)=>{
     try{
+        // find student
         let student = await Student.findById(req.params.id);
         if(student){
             student.name=req.body.name,

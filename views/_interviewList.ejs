@@ -1,18 +1,26 @@
-<tr  class="tr text-center" >
-    <!--date -->
-    <td class="align-middle"  colspan="4">
-        <span><%= interview.date.toString().slice(0,16) %></span>
-    </td>
+<!-- table row  -->
+<tr class="tr text-center">
+  <!--date -->
+  <td class="align-middle" colspan="4">
+    <span><%= interview.date.toString().slice(0,16) %></span>
+  </td>
 
-    <!--company name -->
-    <td class="align-middle" colspan="4">
-        <span><%= interview.company.name %></span>
-    </td>
-    <% if(locals.user) { %>
-    <!-- action -->
-    <td class="align-middle action-field" colspan="1">
-      <a href="/interview/see-list/<%=interview.id%>" data-mdb-toggle="tooltip" title="See List"><i class="fa-solid fa-angles-right mr-2 "></i></a>
-      <a href="/interview/update-page/<%=interview.id%>"><i class="fas fa-edit fa-lg text-white mr-2"></i></a>
-    </td>
-    <%}%>
+  <!--company name -->
+  <td class="align-middle" colspan="4">
+    <span><%= interview.company.name %></span>
+  </td>
+  <% if(locals.user) { %>
+  <!-- action -->
+  <td class="align-middle action-field" colspan="1">
+    <a
+      href="/interview/see-list/<%=interview.id%>"
+      data-mdb-toggle="tooltip"
+      title="See List"
+      ><i class="fa-solid fa-angles-right mr-2"></i
+    ></a>
+    <a href="/interview/update-page/<%=interview.id%>"
+      ><i class="fas fa-edit fa-lg text-white mr-2"></i
+    ></a>
+  </td>
+  <%}%>
 </tr>

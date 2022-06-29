@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+// interview schema
 const InterviewSchema = new mongoose.Schema({
     date:{
         type:Date

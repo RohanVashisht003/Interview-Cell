@@ -1,9 +1,9 @@
+
+/* main signin container */
 .main-outer-container{
     display: flex;
-    /* justify-content: center;
-    align-items: center; */
     height: 100vh;
-    background-color: #032d6b;
+    background-color: #6b5d5d;
 }
 
 

@@ -1,22 +1,27 @@
-<link rel="stylesheet" href="/css/updateInterview.css">
+<link rel="stylesheet" href="/css/updateInterview.css" />
 
 <div class="main-container">
-    <form action="/interview/update/<%= interview.id%>" method="POST">
-         
-          <div class="form-group">
-            <label for="companyName">Company Name</label>
-            <input type="text" class="" id="companyName" placeholder="Name" name="companyName" value="<%=interview.company.name%>" />
-          </div>
-         
-          <div class="form-group">
-            <label for="date">Interview Date</label>
-            <input
-              type="date"
-              class=""
-              id="date"
-              name="date"
-            />
-          </div>
-          <div class="d-flex justify-content-center mt-4"><button type="submit" class="btn btn-primary col-md-6">Update Details</button></div>
-</form>
+  <form action="/interview/update/<%= interview.id%>" method="POST">
+    <div class="form-group">
+      <label for="companyName">Company Name</label>
+      <input
+        type="text"
+        class=""
+        id="companyName"
+        placeholder="Name"
+        name="companyName"
+        value="<%=interview.company.name%>"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="date">Interview Date</label>
+      <input type="date" class="" id="date" name="date" />
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+      <button type="submit" class="btn btn-primary col-md-6">
+        Update Details
+      </button>
+    </div>
+  </form>
 </div>

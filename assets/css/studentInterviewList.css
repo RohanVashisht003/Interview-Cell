@@ -1,9 +1,10 @@
+/* outer */
 #outer{
     height: auto;
     min-height: 100vh;
     display:flex;
     flex-direction: column;
-    background:linear-gradient(135deg, #8db31b 0%,#fad961 100%);
+    background:#6b5d5d;
     min-width: 376px;
 }
 

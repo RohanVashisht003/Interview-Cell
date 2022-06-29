@@ -1,27 +1,31 @@
-    <tr  class=" text-center" id="student-<%= student._id %>">
-        <!-- name -->
-       
-        <td class="align-middle"  colspan="1">
-            <span><%= student.name %></span>
-        </td>
-    <!-- batch -->
-        <td class="align-middle" colspan="1">
-            <span><%= student.batch %></span>
-        </td>
-    <!-- college -->
-        <td class="align-middle" colspan="4">
-            <span><%= student.college %></span>
-        </td>
-        <!-- status -->
-        <td class="align-middle" colspan="1">
-            <span><%= student.status %></span>
-        </td>
-        <% if(locals.user) { %>
-        <!-- action -->
-        <td class=" action-field align-middle" colspan="1">
-            <a href="/student/student-profile/<%= student.id %>" data-mdb-toggle="tooltip" title="Edit Details"><i class="fas fa-edit fa-lg text-white mr-2"></i></a>
-        </td>
-        <%}%>
-    </tr>
+<!-- table row -->
+<tr class="text-center" id="student-<%= student._id %>">
+  <!-- name -->
 
-
+  <td class="align-middle" colspan="1">
+    <span><%= student.name %></span>
+  </td>
+  <!-- batch -->
+  <td class="align-middle" colspan="1">
+    <span><%= student.batch %></span>
+  </td>
+  <!-- college -->
+  <td class="align-middle" colspan="4">
+    <span><%= student.college %></span>
+  </td>
+  <!-- status -->
+  <td class="align-middle" colspan="1">
+    <span><%= student.status %></span>
+  </td>
+  <% if(locals.user) { %>
+  <!-- action -->
+  <td class="action-field align-middle" colspan="1">
+    <a
+      href="/student/student-profile/<%= student.id %>"
+      data-mdb-toggle="tooltip"
+      title="Edit Details"
+      ><i class="fas fa-edit fa-lg text-white mr-2"></i
+    ></a>
+  </td>
+  <%}%>
+</tr>

@@ -1,103 +1,120 @@
-<link rel="stylesheet" href="/css/updatePage.css">
+<link rel="stylesheet" href="/css/updatePage.css" />
 
-<div class="main-container" style="display:block;">
-    <form action="/student/update/<%= student.id %>" method="POST">
-      <div class="form-row">
-       
-        <div class="form-group col-md-6">
-          <label for="name">Name</label>
-          <input type="text" class="" id="name" placeholder="Name" name="name" value="<%= student.name %>"required/>
-        </div>
-       
-        <div class="form-group col-md-6">
-          <label for="email">Email</label>
-          <input
-            type="email"
-            class=""
-            id="email"
-            placeholder="Email"
-            name="email"
-            value="<%= student.email %>"
-            readonly
-          required/>
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="college">College Name</label>
+<div class="main-container" style="display: block">
+  <form action="/student/update/<%= student.id %>" method="POST">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name">Name</label>
         <input
           type="text"
           class=""
-          placeholder="College Name"
-          id="college"
-          name="college"
-          value="<%= student.college %>"
-        required/>
+          id="name"
+          placeholder="Name"
+          name="name"
+          value="<%= student.name %>"
+          required
+        />
       </div>
-      <div class="form-row">
-       
-        <div class="form-group col-md-4">
-          <label for="webDev">Web Dev Score</label>
-          <input
-            type="number"
-            class=""
-            placeholder="Enter Score"
-            id="webDev"
-            name="webDevScore"
-            value="<%= student.webDev.score %>"
-         required />
-        </div>
-  
-       
-        <div class="form-group col-md-4">
-          <label for="dsa">DSA Score</label>
-          <input
-            type="number"
-            class=""
-            placeholder="Enter Score"
-            id="dsa"
-            name="dsaScore"
-            value="<%= student.dsa.score %>"
-         required />
-        </div>
-  
-       
-        <div class="form-group col-md-4">
-          <label for="react">React Score</label>
-          <input
-            type="number"
-            class=""
-            placeholder="Enter Score"
-            id="react"
-            name="reactScore"
-            value="<%= student.react.score %>"
-          required/>
-        </div>
+
+      <div class="form-group col-md-6">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class=""
+          id="email"
+          placeholder="Email"
+          name="email"
+          value="<%= student.email %>"
+          readonly
+          required
+        />
       </div>
-  
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="batch">Batch</label>
-          <input
-            type="text"
-            class=""
-            id="batch"
-            placeholder="Batch"
-            name="batch"
-            value="<%= student.batch %>"
-         required />
-        </div>
-        <div class="form-group col-md-4">
-          <label for="status">Status</label>
-          <select id="status" class="form-control" style="background-color: #d8d8d8"
-          name="status">
+    </div>
+    <div class="form-group">
+      <label for="college">College Name</label>
+      <input
+        type="text"
+        class=""
+        placeholder="College Name"
+        id="college"
+        name="college"
+        value="<%= student.college %>"
+        required
+      />
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="webDev">Web Dev Score</label>
+        <input
+          type="number"
+          class=""
+          placeholder="Enter Score"
+          id="webDev"
+          name="webDevScore"
+          value="<%= student.webDev.score %>"
+          required
+        />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="dsa">DSA Score</label>
+        <input
+          type="number"
+          class=""
+          placeholder="Enter Score"
+          id="dsa"
+          name="dsaScore"
+          value="<%= student.dsa.score %>"
+          required
+        />
+      </div>
+
+      <div class="form-group col-md-4">
+        <label for="react">React Score</label>
+        <input
+          type="number"
+          class=""
+          placeholder="Enter Score"
+          id="react"
+          name="reactScore"
+          value="<%= student.react.score %>"
+          required
+        />
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="batch">Batch</label>
+        <input
+          type="text"
+          class=""
+          id="batch"
+          placeholder="Batch"
+          name="batch"
+          value="<%= student.batch %>"
+          required
+        />
+      </div>
+      <div class="form-group col-md-4">
+        <label for="status">Status</label>
+        <select
+          id="status"
+          class="form-control"
+          style="background-color: #d8d8d8"
+          name="status"
+        >
           <option hidden selected disabled><%= student.status%></option>
-            <option value="Not Placed">Not Placed</option>
-            <option value="Placed">Placed</option>
-          </select>
-        </div>
+          <option value="Not Placed">Not Placed</option>
+          <option value="Placed">Placed</option>
+        </select>
       </div>
-  
-      <div class="d-flex justify-content-center mt-4"><button type="submit" class="btn btn-primary col-md-6">Update Details</button></div>
-   
-    </form>
-  </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+      <button type="submit" class="btn btn-primary col-md-6">
+        Update Details
+      </button>
+    </div>
+  </form>
+</div>

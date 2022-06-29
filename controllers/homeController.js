@@ -1,3 +1,5 @@
+// home page
+
 module.exports.home = (req, res)=>{
     try{
        return res.render('home',{
