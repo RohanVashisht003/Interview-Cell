@@ -54,20 +54,20 @@ passport.deserializeUser((id, done) => {
     });
 });
 
-// check if user is authenticated
-passport.checkAuthentication = (req, res, next) => {
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    return res.redirect('/employee/sign-in');
-}
-
 passport.setAuthenticatedUser = (req, res, next) => {
     if (req.isAuthenticated()) {
         // req.user contains the current sign-in user from session cookie and we are storing it into locals for views
         res.locals.user = req.user;
     }
     next();
+}
+
+// check if user is authenticated
+passport.checkAuthentication = (req, res, next) => {
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    return res.redirect('/employee/sign-in');
 }
 
 

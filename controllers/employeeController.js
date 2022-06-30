@@ -72,7 +72,7 @@ module.exports.destroySession = (req, res) => {
             return next(err);
         }
         req.flash('success', 'Employee logged out');
-        console.log("User logged out")
+        console.log("Employee logged out")
         return res.redirect('/');
     });
 }
@@ -95,7 +95,7 @@ module.exports.updatePassword = (req, res) => {
         console.log('Password and confirm password not matched');
         return res.redirect('back');
     }
-// compare encrypted
+    // compare encrypted
     bcrypt.compare(req.body.oldPassword, loggedInUser.password, (err, result) => {
         if (result == true) {
             loggedInUser.password = req.body.newPassword;

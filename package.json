@@ -20,6 +20,7 @@
     "express-session": "^1.17.3",
     "json2csv": "^5.0.7",
     "mongoose": "^6.4.0",
+    "nocache": "^3.0.4",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
     "rotating-file-stream": "^3.0.4"

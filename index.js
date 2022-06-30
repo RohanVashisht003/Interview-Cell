@@ -10,7 +10,9 @@ const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const flashMiddleWare = require('./config/flash-middleware');
 const expressLayouts = require('express-ejs-layouts');
+const nocache  = require('nocache');
 
+app.use(nocache());
 // using static files
 app.use(express.static('./assets'));
 
