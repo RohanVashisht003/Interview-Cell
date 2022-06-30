@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
 // connect to atlas
-mongoose.connect('mongodb+srv://rohan003:000@placement-cell.da4ryif.mongodb.net/?retryWrites=true&w=majority', {
+  // #### -> use your credentials
+mongoose.connect('####', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })

@@ -35,15 +35,17 @@ app.set('views', './views');
 
 // using sessions
 app.use(session({
+      // #### -> use your credentials
     name: 'placement-cell',
-    secret: 'blabla',
+    secret: '####',
     saveUninitialized: false,
     resave: false,
     cookie: {
         maxAge: (1000 * 1800)
     },
+  
     store: MongoStore.create({
-            mongoUrl: 'mongodb+srv://rohan003:000@placement-cell.da4ryif.mongodb.net/?retryWrites=true&w=majority',
+            mongoUrl: '####',
         },
         function (err) {
             console.log(err || "connect-mongo setup OK");
