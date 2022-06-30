@@ -8,6 +8,7 @@
 3. List of Interviews + form to create an interview (with date).
 4. Allocate a student to an interview.
 5. Select an interview to view the list of all students and mark a result status from the list page itself.
+6. Download CSV file.
 
 ## Setup The Project
 1. Clone or Download the Repo.
