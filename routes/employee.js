@@ -2,7 +2,7 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 const employeeController = require('../controllers/employeeController');
-
+const {downloadCSV} = require('../controllers/csvController');
 // sign in
 router.get('/sign-in', employeeController.signIn);
 router.post('/create-session', passport.authenticate('local', {
@@ -21,6 +21,7 @@ router.get('/sign-out', employeeController.destroySession);
 // update password for employee
 router.get('/update-password-form', passport.checkAuthentication, employeeController.updatePasswordForm);
 router.post('/update-password', passport.checkAuthentication, employeeController.updatePassword);
+
 
 
 module.exports = router;

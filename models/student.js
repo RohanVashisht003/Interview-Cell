@@ -18,10 +18,7 @@ const StudentSchema = new mongoose.Schema({
     type: String,
     enum: ['Placed', 'Not Placed'],
   },
-  result: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Result'
-  }],
+
   webDev: {
     name: {
       type: String,

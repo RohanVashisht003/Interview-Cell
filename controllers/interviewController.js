@@ -18,7 +18,7 @@ module.exports.renderPage = async (req, res) => {
             students: students
         });
     } catch (err) {
-        req.flash('error',"Error in rendering page");
+        req.flash('error', "Error in rendering page");
         console.log('Error', err);
         return;
     }
@@ -32,7 +32,7 @@ module.exports.createInterview = async (req, res) => {
         let company = await Company.findOne({
             name: req.body.companyName,
         });
-// not found
+        // not found
         if (!company) {
             // create company
             Company.create({
@@ -40,7 +40,7 @@ module.exports.createInterview = async (req, res) => {
                 date: req.body.date
             }, (err, new_company) => {
                 if (err) {
-                    req.flash('error',"Company cannot be created");
+                    req.flash('error', "Company cannot be created");
                     console.log("cant create company", err);
                     return res.redirect("back");
                 }
@@ -50,11 +50,11 @@ module.exports.createInterview = async (req, res) => {
                     company: new_company.id
                 }, (err, new_interview) => {
                     if (err) {
-                        req.flash('error',"Interview cannot be created");
+                        req.flash('error', "Interview cannot be created");
                         console.log("cant create interview", err);
                         return res.redirect("back");
                     }
-                    req.flash('success',"Interview created successfully");
+                    req.flash('success', "Interview created successfully");
                     console.log("Interview created", new_interview);
                     return res.redirect('back');
                 });
@@ -62,12 +62,12 @@ module.exports.createInterview = async (req, res) => {
         }
         // found 
         else {
-            req.flash('information',"Interview already exist");
+            req.flash('information', "Interview already exist");
             console.log("Interview already exist");
             return res.redirect('back');
         }
     } catch (err) {
-        req.flash('error',err);
+        req.flash('error', err);
         console.log('Error', err);
         return;
     }
@@ -75,6 +75,7 @@ module.exports.createInterview = async (req, res) => {
 
 // allocate student
 module.exports.addStudent = async (req, res) => {
+    console.log("student", req.body.student);
     try {
         // find company
         let company = await Company.findOne({
@@ -94,8 +95,10 @@ module.exports.addStudent = async (req, res) => {
             });
 
             // update student and push into interviews array
-            let student = await Student.updateOne({
-                id: req.body.student
+            let findout = await Student.findById(req.body.student);
+            console.log("findout", findout);
+            Student.updateOne({
+                _id: req.body.student
             }, {
                 $push: {
                     interviews: [{
@@ -104,8 +107,13 @@ module.exports.addStudent = async (req, res) => {
                         interview: interview
                     }]
                 }
+            }, (err, student) => {
+                if (err) {
+                    console.log(err);
+                }
+                console.log("student", student);
             });
-// update interview and push into students array
+            // update interview and push into students array
             Interview.updateOne({
                 company: company.id
             }, {
@@ -120,12 +128,12 @@ module.exports.addStudent = async (req, res) => {
                     console.log(err);
                 }
             });
-            req.flash('success',"Student assigned successfully");
+            req.flash('success', "Student assigned successfully");
             return res.redirect('back');
         }
         // if not found 
         else {
-            req.flash('error',"Interview not found");
+            req.flash('error', "Interview not found");
             console.log("interview not found");
             return res.redirect('back');
         }
@@ -174,7 +182,7 @@ module.exports.setResult = (req, res) => {
                 return;
             }
         });
-        req.flash('success',"Result updated successfully");
+        req.flash('success', "Result updated successfully");
         console.log('result updated', result._update);
         return res.redirect('back');
 
@@ -184,41 +192,43 @@ module.exports.setResult = (req, res) => {
 }
 
 // render interview update page
-module.exports.updatePage = async (req,res)=>{
+module.exports.updatePage = async (req, res) => {
     // find interview and populate company
-    let interview = await Interview.findOne({id:req.params.id}).populate('company');
-        return res.render('updateInterview',{
-            title:"Update Interview",
-            interview:interview 
-        });
+    let interview = await Interview.findOne({
+        id: req.params.id
+    }).populate('company');
+    return res.render('updateInterview', {
+        title: "Update Interview",
+        interview: interview
+    });
 }
 
 // update interview details
-module.exports.update = async(req, res)=>{
+module.exports.update = async (req, res) => {
     // find interview
     let interview = await Interview.findById(req.params.id);
     // find company
     let company = await Company.findById(interview.company);
     // if no date entered
-    if(req.body.date === ''){
-        company.name=req.body.companyName
+    if (req.body.date === '') {
+        company.name = req.body.companyName
     }
     // if no company entered
-    else if(req.body.companyName=== ''){
-        interview.date = req.body.date; 
+    else if (req.body.companyName === '') {
+        interview.date = req.body.date;
     }
     // if nothing entered
-    else if(req.body.companyName === '' && req.body.date ===''){
+    else if (req.body.companyName === '' && req.body.date === '') {
         return;
     }
     // if both fields entered
-    else{
+    else {
         interview.date = req.body.date;
-        company.date=req.body.date;
+        company.date = req.body.date;
     }
     // save schemas
     interview.save();
     company.save();
-    req.flash('success',"Interview details updated successfully");
+    req.flash('success', "Interview details updated successfully");
     return res.redirect('/interview/form');
 }
